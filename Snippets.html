@@ -35,6 +35,22 @@
 
 	  // Allows us to convert to a Float
     document.write("Converted float :", parseFloat("5.5"), "<br/>");
+	  
+	  
+// Part about strings 
+	  
+  var randStr = "A long " + "string that " + "goes on and on";
+// Prints out the length of the string
+  document.write("String Length ", randStr.length + "<br/>");
+// Prints the index of any word in the string 
+  document.write("Index for \"goes\" : ", randStr.indexOf("goes"), "<br/>");
+	  
+// Slices from and to a specified index
+  document.write(randStr.slice(19,23) + "<br/>"); 
+  // Slices from the specified index until the end of the string
+  document.write(randStr.slice(19) + "<br/>");
+// substr(x,y)  x is the starting index and y is the length 
+  document.write(randStr.substr(19, 4), "<br/>");
   </script>
 	
 	</body>
