@@ -68,6 +68,21 @@
   numbers.sort();
   document.write("after sorting the array : ", numbers.join(", "), "<br/>");
  
+// Adds the tomSmith array to the numbers array at the end
+  var combinedArray = numbers.concat(tomSmith);
+
+  document.write("combined array : ", combinedArray.join(", "), "<br/>");
+
+tomSmith[0] = "original info";
+// removes the last item in this array
+  combinedArray.pop();
+
+// adds at the end of the array ( like append() )
+tomSmith.push("stuff", "more stuff");
+// removes the first item in an array
+tomSmith.shift();
+//adds an item at the beginning of the array
+tomSmith.unshift("zab");
 
   </script>
 	
