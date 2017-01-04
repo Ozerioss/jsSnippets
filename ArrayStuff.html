@@ -24,7 +24,18 @@
   <p id="sayHello"></p>
   <script>
   
-  document.write("test stuff");
+  // Decalring an array in js is super easy
+  var tomSmith =["Tom Smith", "123 main adc", 120.50];
+
+// Accessing the array
+  document.write("1st index", tomSmith[0], "<br/>");
+
+
+// First parameter is the index, second parameter is the number of items, third parameter is the data that we're going to put in there
+  tomSmith.splice(2,1,"replaces at index 2 with 1 item");
+
+// Overrides the next index if the second parameter is more than 1
+  tomSmith.splice(1,2, "starts at index 1 and replaces 2 items : index 1 AND 2", "this should override index 2 ");
  
 
   </script>
