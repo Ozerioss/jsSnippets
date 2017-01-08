@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- we're actually not importing jack shit
+    <script src="jswork.js"></script>  -->
+ 
+    <style type="text/css">
+      body {font-size: 1.6em;}
+      .hidden {display:none;}
+      .show {display:inline !important;}
+      button {
+        border: 2px solid black; background: #E5E4E2;
+        font-size: .5em; font-weight: bold; color: black;
+        padding: .8em 2em;
+        margin-top: .4em;
+      }
+	</style>
+	
+	</head>
+	
+	<body>
+
+  <a href="JavaScript:void(0)" onClick="alert('Hello');"> Say hello </a> <br/>  <!-- calling the alert and the openAlert functions using the on click parameter in that <a .. tag in the html -->
+
+  <a href="JavaScript:void(0)" onClick="openAlert('wassup');"> Say sup </a> <br/>
+
+  <a href="JavaScript:void(0)" onmouseover="this.style.color='red';"
+  onmouseout="this.style.color='orange'"
+  ondblclick="this.text='double click detected'"
+  onmousedown="this.text='Don\'t press too hard mate'"
+  onmouseup="this.text='finally you fucking twat'" 
+  > Testerino pasterino </a> <br/>
+
+  <input type="text" id="randInput"
+  onchange="var dataEntered=document.getElementById('randInput').value;
+  alert('User typed ' + dataEntered)" />
+
+  <form action='#' id="SampForm">
+
+  <input id='charInput' type="text">
+  <p id="keyData"> Key data here </p>
+
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
+
+  </form>
+
+<br/>
+
+<img src="image.png" id="logo">
+
+<button id="logoButton"> Get Logo </button>
+
+<input id='mouseInput' type="text" size="30"> <br/>
+
+Mouse X : <input type="text" id="MouseX"> <br/>
+Mouse Y : <input type="text" id="MouseY"> <br/>
+
+
+<script>
+
+
+// Event handling part 
+	
+	function openAlert(message)  // this function can be called from the html
+	{
+		alert(message);
+	}
+
+
+// Dont know why he made this version this complicated
+	function getChar(event)
+	{
+		if(event.which == null)  // event.which returns the key or the mouse button that was pressed 
+		{
+			return String.fromCharCode(event.keyCode);
+		}
+		else if (event.which !=0 && event.charCode != 0)
+		{
+			return String.fromCharCode(event.keyCode);
+		}
+		else return null;
+
+	}
+
+	function newgetChar(event)
+	{
+		return String.fromCharCode(event.keyCode);
+	}
+
+
+
+// We modify the p tag with the key pressed that is returned by the function newgetChar
+	document.getElementById('charInput').onkeypress = function(event)
+	{
+		var char = newgetChar(event || window.event);
+		if(!char) return false;
+
+		document.getElementById('keyData').innerHTML = char + " was clicked";
+		return true;
+	}
+
+// Allows to modify the p tag when we click on the input form
+	document.getElementById('charInput').onfocus = function(event)
+	{
+		document.getElementById('keyData').innerHTML = " Input focused ";
+	}
+// Allows to know whe the user is selecting 
+	document.getElementById('charInput').onselect = function(event)
+	{
+		document.getElementById('keyData').innerHTML = " i know u selecting boyo";
+	}
+
+// this section of code allows us to change the logo when hovering over it and print out a message when the mouse is over the logo and also when the mouse is out of the logo it prints out another message and the previous picture is showed 
+	document.getElementById('logoButton').onClick = function(event)
+	{
+		document.getElementById('logo').className = "show"; // smth to do with the css
+	}
+	document.getElementById('logo').onmouseover = function(event)
+	{
+		document.getElementById('logo').src = "image.jpg";
+		document.getElementById('mouseInput').value = "mouse over image";
+	}
+
+	document.getElementById('logo').onmouseout = function(event)
+	{
+		document.getElementById('logo').src = "image.png";
+		document.getElementById('mouseInput').value = "mouse out image";
+	}
+
+  </script>
+	
+	</body>
+	
+	
+</html>
