@@ -134,6 +134,38 @@ Mouse Y : <input type="text" id="MouseY"> <br/>
 		document.getElementById('logo').src = "image.png";
 		document.getElementById('mouseInput').value = "mouse out image";
 	}
+	
+	
+	
+// Function that allows us to track the movement of the mouse relative to the html document
+	document.body.onmousemove = function(event)
+	{
+		event = event || window.event;
+		var pageX = event.pageX;
+		var pageY = event.pageY;
+
+		if(pageX == undefined)
+		{
+			pageX = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft; // event.clientX returns a number that is relative to the movement of the mouse relative to the X axis 
+			pageY = event.clientY + document.body.scrollTop + document.documentElement.scrollTop; // same but for the Y axis 
+		}
+
+		document.getElementById('MouseX').value = pageX;
+		document.getElementById('MouseY').value = pageY;
+	};
+// Shit needs to be fixed
+	document.getElementById('clearInputs').onClick = function(event)
+	{
+		var inputElements = document.getElementByTagName('input');
+
+		for(var i = 0; i < inputElements.length; i++)
+		{
+			if(inputElements[i].type == "text")
+			{
+				inputElements[i].value ="";
+			}
+		}
+	};
 
 
   </script>
