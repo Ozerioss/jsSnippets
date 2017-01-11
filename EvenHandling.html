@@ -116,13 +116,19 @@ Mouse Y : <input type="text" id="MouseY"> <br/>
 	document.getElementById('logoButton').onClick = function(event)
 	{
 		document.getElementById('logo').className = "show"; // smth to do with the css
+	}	document.getElementById('logo').onClick = function(event)
+	{
+		document.getElementById('logo').className = "hidden"; // We can change properties of the css using this
 	}
+
+	// Changes the logo image when we hover and prints out a message on the input box
 	document.getElementById('logo').onmouseover = function(event)
 	{
 		document.getElementById('logo').src = "image.jpg";
 		document.getElementById('mouseInput').value = "mouse over image";
 	}
 
+// Changes the logo image back when we hover and prints out a message on the input box
 	document.getElementById('logo').onmouseout = function(event)
 	{
 		document.getElementById('logo').src = "image.png";
