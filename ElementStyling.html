@@ -31,6 +31,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget turpis eget 
 <button id="chgBorderStyle">Border Style</button>
 <button id="chgBorderWidth">Border Width</button>
 <button id="chgBorderColor">Border Color</button>
+		
+		
+<br/>
+		
+<button id="goToGoogle">Go to Google</button><br />
+ 
+<button id="forwardPage">Forward Page</button><br />
+ 
+<button id="backPage">Back Page</button><br />
+ 
+<button id="reload">Reload Page</button><br />
 
 <script>
 
@@ -59,6 +70,40 @@ document.getElementById('chgBorderColor').onclick = function(event)
 {
 	document.getElementById('sampDiv').style.borderColor ="blue";
 }
+
+
+// Ways to print out the current url etc ..
+document.write("Current Url : ", window.location.href, "<br/>");
+
+document.write("Current Host : ", window.location.hostname, "<br/>");
+
+document.write("Current Path : ", window.location.pathname, "<br/>");
+
+
+//redirection towards an other site
+document.getElementById('goToGoogle').onclick = function(event)
+{
+	window.location.href = "http://google.com";
+}
+
+document.getElementById('forwardPage').onclick = function(event)
+{
+	history.forward();
+}
+
+document.getElementById('backPage').onclick = function(event)
+{
+	history.back();
+}
+
+document.getElementById('reload').onclick = function(event)
+{
+	window.location.reload(true);
+}
+
+// history.go(-2);   allows us to go two steps backwards in history. A positive value would allow us to go forward 2 steps
+
+
 
 
 
